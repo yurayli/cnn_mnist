@@ -59,14 +59,14 @@ label_units = 10
 
 model = Sequential([
 	Lambda(norm_input, input_shape=(1,28,28), output_shape=(1,28,28)),
-    Convolution2D(32,3,3, activation='relu'),
+    Convolution2D(32,3,3, activation='relu', border_mode='same'),
     BatchNormalization(axis=1),
-    Convolution2D(32,3,3, activation='relu'),
+    Convolution2D(32,3,3, activation='relu', border_mode='same'),
     MaxPooling2D(),
     BatchNormalization(axis=1),
-    Convolution2D(64,3,3, activation='relu'),
+    Convolution2D(64,3,3, activation='relu', border_mode='same'),
     BatchNormalization(axis=1),
-    Convolution2D(64,3,3, activation='relu'),
+    Convolution2D(64,3,3, activation='relu', border_mode='same'),
     MaxPooling2D(),
     Flatten(),
 	Dense(hidden_num_units, init='he_normal'),
